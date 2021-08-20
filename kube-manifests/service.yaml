@@ -1,12 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-flask-change-service
+  name: random-numbers-service-2
+  namespace: adi-test
 spec:
-  selector:
-    app: hello-python
   ports:
-  - protocol: "TCP"
-    port: 8080
+  - nodePort: 31154
+    port: 5002
+    protocol: TCP
     targetPort: 5001
-      #type: ClusterIP
+  selector:
+    app: random-numbers
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost

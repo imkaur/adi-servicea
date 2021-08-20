@@ -13,5 +13,6 @@ def generate_rdum():
 def response_rdum():
     res=generate_rdum()
     return str(res)
+
 if __name__ == '__main__':
-    run_simple('localhost', 5001, app)
+    run_simple('0.0.0.0', 5001, app)

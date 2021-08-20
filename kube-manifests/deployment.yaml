@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: random-numbers
-        image: mandeep1690/rndmnumbers:0.0.1
+        image: mandeep1690/rndmnumbers:0.0.2
         imagePullPolicy: Never
         ports:
         - containerPort: 5001

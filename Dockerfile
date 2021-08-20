@@ -1,7 +1,6 @@
 From python:3.7
 
-run mkdir /app && \
-mkdir /opt
+run mkdir /app 
 WORKDIR /app
 COPY src/rdumResponse.py /app/rdumResponse.py
 COPY requirements.txt /opt/requirements.txt
