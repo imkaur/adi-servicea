@@ -1,6 +1,5 @@
 import logging
 import requests
+logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s')
 req = requests.get("http://localhost:5001/serviceA")
-print(req)
-print(req.content)
-log.setLevel(logging.DEBUG)
+logging.warning('Received '+ str(req))
