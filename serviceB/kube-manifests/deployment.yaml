@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: random-numbers
+  name: serviceB
   namespace: adi-test
 spec:
   selector:
     matchLabels:
-      app: random-numbers
+      app: serviceB
   replicas: 1
   template:
     metadata:
       labels:
-        app: random-numbers
+        app: serviceB
     spec:
       containers:
-      - name: random-numbers
-        image: mandeep1690/rndmnumbers:0.0.3
+      - name: serviceB
+        image: mandeep1690/serviceb:0.0.1
         imagePullPolicy: Always
-        ports:
-        - containerPort: 5001

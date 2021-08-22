@@ -1,7 +1,5 @@
-from werkzeug.wrappers import Request, Response
-from werkzeug.serving import run_simple
 import random
-from flask import Flask
+from flask import Flask, abort, Response
 app = Flask(__name__)
 
 def generate_rdum():
@@ -9,8 +7,7 @@ def generate_rdum():
     ran_resp=random.choice( response )
     return ran_resp
 
-
-@app.route('/serviceA')
+@app.route('/api/serviceA')
 def response_rdum():
     res=generate_rdum()
     if res == 200:
@@ -22,5 +19,7 @@ def response_rdum():
 def internal_error(error):
     return "500 error - Internal Server Exception", 500
 
+
 if __name__ == '__main__':
-    run_simple('0.0.0.0', 5001, app)
+    app.run('0.0.0.0', 5001)
+
