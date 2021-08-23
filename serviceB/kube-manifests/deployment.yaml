@@ -15,5 +15,8 @@ spec:
     spec:
       containers:
       - name: serviceB
-        image: mandeep1690/serviceb:0.0.1
+        image: mandeep1690/serviceb:0.0.2
         imagePullPolicy: Always
+        envFrom:
+          -  configMapref: 
+               name: getrequest-cm

@@ -20,6 +20,6 @@ def internal_error(error):
     return "500 error - Internal Server Exception", 500
 
 
-if __name__ == '__main__':
-    app.run('0.0.0.0', 5001)
+#if __name__ == '__main__':
+#    app.run('0.0.0.0',5001)
 

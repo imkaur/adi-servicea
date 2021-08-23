@@ -1,6 +1,6 @@
-From python:3.7
+FROM python:3.7
 
-run mkdir /app 
+RUN mkdir /app 
 WORKDIR /app
 COPY src/A.py /app/A.py
 COPY requirements.txt /opt/requirements.txt
