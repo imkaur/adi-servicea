@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(DOCKER_IMAGE_NAME, "-f serviceA/${dockerfile}")
+                    app = docker.build(DOCKER_IMAGE_NAME, "-f serviceA/${dockerfile} .")
                     app.inside {
                         sh 'echo Hello, World!'
                     }
