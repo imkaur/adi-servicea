@@ -45,7 +45,7 @@ pipeline {
                 milestone(1)
                 //implement Kubernetes deployment here
         	kubernetesDeploy(kubeconfigId: 'kubeconfig',
-                        configs: 'serviceA/kube-manifests/deployment.yml',
+                        configs: 'serviceA/kube-manifests/deployment.yaml',
                         enableConfigSubstitution: true
 			)
 		}
