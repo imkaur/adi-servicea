@@ -1,8 +1,9 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "namenode/flask_hello"
-    }
+        DOCKER_IMAGE_NAME = "mandeep1690/servicea"
+ 	dockerfile= "Dockerfile-small"   
+}
     stages {
         stage('Build') {
             steps {
@@ -15,7 +16,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app = docker.build(DOCKER_IMAGE_NAME, "-f ${dockerfile} ./serviceA")
                     app.inside {
                         sh 'echo Hello, World!'
                     }
