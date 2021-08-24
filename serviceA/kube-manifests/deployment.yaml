@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: random-numbers
-        image: mandeep1690/rndmnumbers:0.0.3
+        image: mandeep1690/rndmnumbers:${BUILD_NUMBER}
         imagePullPolicy: Always
         ports:
         - containerPort: 5001
