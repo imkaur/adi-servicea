@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serviceB
+  name: serviceb
   namespace: adi-test
 spec:
   selector:
     matchLabels:
-      app: serviceB
+      app: serviceb
   replicas: 1
   template:
     metadata:
       labels:
-        app: serviceB
+        app: serviceb
     spec:
       containers:
-      - name: serviceB
+      - name: serviceb
         image: mandeep1690/serviceb:0.0.2
         imagePullPolicy: Always
         envFrom:
-          -  configMapref: 
+          -  configMapRef:
                name: getrequest-cm
+        ports:
+        - containerPort: 8080
