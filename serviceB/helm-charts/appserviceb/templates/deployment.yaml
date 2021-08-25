@@ -22,12 +22,13 @@ spec:
                name: getrequest-cm
         ports:
         - containerPort: 8082
-        startupProbe:
-          httpGet:
-            path: /health
-            port: 8082
-          failureThreshold: 6
-          periodSeconds: 10
+#Uncomment below if kuberenetes version 1.21
+#        startupProbe:
+#          httpGet:
+#            path: /health
+#            port: 8082
+#          failureThreshold: 6
+#          periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
