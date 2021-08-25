@@ -24,5 +24,5 @@ serviceAccount:
   name: "sa-servicea"
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 8081
