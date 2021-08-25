@@ -44,7 +44,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
 		script {
-		   sh 'helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag=1.0.0' 
+		   sh '/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag=1.0.0' 
 		}
                 //implement Kubernetes deployment here
 //        	kubernetesDeploy(kubeconfigId: 'kubeconfig',
