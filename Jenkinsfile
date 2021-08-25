@@ -45,7 +45,8 @@ pipeline {
                 milestone(1)
 		script {
 		   sh """
-/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/.kube/
+			sudo chown -R $(id -u):$(id -g) home/cloud_user/.kube/
+			/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/.kube/
 		"""
 		}
                 //implement Kubernetes deployment here
