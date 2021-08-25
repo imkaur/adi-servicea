@@ -45,7 +45,7 @@ pipeline {
                 milestone(1)
 		script {
 		   sh """
-/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/git/adi-challenge
+/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/.kube/config
 		"""
 		}
                 //implement Kubernetes deployment here
