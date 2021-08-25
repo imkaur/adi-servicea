@@ -44,7 +44,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
 		script {
-		   sh '/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag=${env.BUILD_NUMBER} --kubeconfig  /home/cloud_user/git/adi-challenge' 
+		   sh '/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/git/adi-challenge' 
 		}
                 //implement Kubernetes deployment here
 //        	kubernetesDeploy(kubeconfigId: 'kubeconfig',
