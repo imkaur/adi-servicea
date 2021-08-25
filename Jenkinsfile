@@ -41,7 +41,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-///                input 'Deploy to Production?'
+//                input 'Deploy to Production?'
                 milestone(1)
 		script {
 		   sh """
