@@ -29,4 +29,4 @@ service:
 
 configmap:
   data:
-    get_request: "http://serviceb-app.default.svc.cluster.local:8081/api/serviceA"
+    get_request: "http://servicea-app.default.svc.cluster.local:8081/api/serviceA"
