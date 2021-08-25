@@ -48,12 +48,7 @@ pipeline {
 			/usr/local/bin/helm upgrade --install servicea-app serviceA/helm-charts/appservicea/ --values serviceA/helm-charts/appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/.kube/config
 		"""
 		}
-                //implement Kubernetes deployment here
-//        	kubernetesDeploy(kubeconfigId: 'kubeconfig',
-//                        configs: 'serviceA/kube-manifests/deployment.yaml',
-//                        enableConfigSubstitution: true
-//			)
-		}
+            }
         }
     }
 }
