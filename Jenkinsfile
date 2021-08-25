@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE_NAME = "mandeep1690/servicea"
- 	dockerfile= "Dockerfile-small"   
+ 	dockerfile= "Dockerfile"   
 }
     stages {
         stage('Build') {
@@ -41,15 +41,19 @@ pipeline {
                 branch 'main'
             }
             steps {
-                input 'Deploy to Production?'
+//                input 'Deploy to Production?'
                 milestone(1)
+		script {
+		   sh """
+			/usr/local/bin/helm upgrade --install servicea-app appservicea/ --values appservicea/values.yaml --set image.tag="${env.BUILD_NUMBER}" --kubeconfig  /home/cloud_user/.kube/
+		"""
+		}
                 //implement Kubernetes deployment here
-        	kubernetesDeploy(kubeconfigId: 'kubeconfig',
-                        configs: 'serviceA/kube-manifests/deployment.yaml',
-                        enableConfigSubstitution: true
-			)
+//        	kubernetesDeploy(kubeconfigId: 'kubeconfig',
+//                        configs: 'serviceA/kube-manifests/deployment.yaml',
+//                        enableConfigSubstitution: true
+//			)
 		}
         }
     }
 }
-
