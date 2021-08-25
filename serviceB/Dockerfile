@@ -12,4 +12,4 @@ COPY --from=builder /install /usr/local
 COPY serviceB/src/B.py /app/B.py
 
 WORKDIR /app
-CMD ["gunicorn", "-w 4", "B:app","-b","0.0.0.0:8080"]
+CMD ["gunicorn", "-w 4", "B:app","-b","0.0.0.0:8082"]
