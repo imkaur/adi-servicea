@@ -8,31 +8,49 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: random-numbers
+  name: servicea
   namespace: adi-test
 spec:
   selector:
     matchLabels:
-      app: random-numbers
+      app: servicea
   replicas: 1
   template:
     metadata:
       labels:
-        app: random-numbers
+        app: servicea
     spec:
       containers:
-      - name: random-numbers
-        image: mandeep1690/rndmnumbers:0.0.3
+      - name: servicea
+        image: ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}
         imagePullPolicy: Always
         ports:
         - containerPort: 5001
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 5001
+          failureThreshold: 6
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5001
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5001
+          initialDelaySeconds: 1
+          periodSeconds: 3
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: random-numbers-service-2
+  name: servicea-service
   namespace: adi-test
 spec:
   ports:
@@ -41,13 +59,6 @@ spec:
     protocol: TCP
     targetPort: 5001
   selector:
-    app: random-numbers
+    app: servicea
   sessionAffinity: None
   type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - hostname: localhost
-...
-
-

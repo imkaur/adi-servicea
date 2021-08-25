@@ -1,10 +1,15 @@
-FROM python:3.7
+FROM python:3.7-alpine as base
 
-RUN mkdir /app 
+FROM base as builder
+RUN mkdir /install
+WORKDIR /install
+COPY serviceA/requirements.txt /requirements.txt
+RUN pip install "--prefix=/install" -r /requirements.txt
+
+#Final Image
+FROM base
+COPY --from=builder /install /usr/local
+COPY serviceA/src/A.py /app/A.py
+
 WORKDIR /app
-COPY src/A.py /app/A.py
-COPY requirements.txt /opt/requirements.txt
-RUN pip install -r /opt/requirements.txt
-
-EXPOSE 5001
-CMD ["python","/app/A.py"]
+CMD ["gunicorn", "-w 4", "A:app","-b","0.0.0.0:5001"]

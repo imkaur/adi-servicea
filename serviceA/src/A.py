@@ -20,6 +20,10 @@ def internal_error(error):
     return "500 error - Internal Server Exception", 500
 
 
+@app.route('/health')
+def hello_world():
+    return "I am healthy"
+
 #if __name__ == '__main__':
 #    app.run('0.0.0.0',5001)
 
