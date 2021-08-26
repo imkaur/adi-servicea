@@ -18,6 +18,7 @@ This microservice service A is written in a python based program which randomly 
 * To reduce the size and minimize the attack surface below steps are taken:
   * Multi-stage docker build 
   * Considered python:3.7-alpine image as base
+  * Current size of service A image is **89.7MB**
 * Please refer https://github.com/imkaur/adi-servicea/blob/main/serviceA/Dockerfile for details.
 ## Install and Deploy
 * Helm Charts of service is created at https://github.com/imkaur/adi-servicea/tree/main/serviceA/helm-charts/appservicea.
