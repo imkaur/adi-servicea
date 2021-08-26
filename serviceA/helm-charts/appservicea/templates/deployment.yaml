@@ -25,7 +25,7 @@ spec:
             port: 8081
           failureThreshold: 6
           periodSeconds: 10
-       livenessProbe:
+        livenessProbe:
          httpGet:
             path: /health
             port: 8081
