@@ -10,6 +10,10 @@ pipeline {
                 echo 'Running build automation'
             }
         }
+	 stage('Initialize'){
+     		def dockerHome = tool 'myDocker'
+		env.PATH = "${dockerHome}/bin:${env.PATH}"
+    	}
         stage('Build Docker Image') {
             when {
                 branch 'main'
@@ -17,9 +21,6 @@ pipeline {
             steps {
                 script {
 		    app = docker.build(DOCKER_IMAGE_NAME, "-f serviceA/${dockerfile} .")
-                    app.inside {
-                        sh 'echo Hello, World!'
-                    }
                 }
             }
         }
