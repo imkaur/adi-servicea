@@ -10,10 +10,6 @@ pipeline {
                 echo 'Running build automation'
             }
         }
-	 stage('Initialize'){
-     		def dockerHome = tool 'myDocker'
-		env.PATH = "${dockerHome}/bin:${env.PATH}"
-    	}
         stage('Build Docker Image') {
             when {
                 branch 'main'
