@@ -20,4 +20,4 @@ Jenkins - v2.249.3 ( with plugins : Pipeline: Declarative(1.9.1) and GitHub, Gen
 * The application error percentage is the number of requests that result in an error compared to the total number of requests.
 * Initialize prometheus metrics by prometheus client library. It is possible to import prometheus metrics from prometheus_flask_exporter and get request counters exposed to /metrics endpoint.
 * flask_http_request_total - Total number of HTTP requests by method and status
-* Add a rule to alertmanager with value such as => rate(flask_http_request_total{status="500"}[1m]) > 70
+* Add a rule to alertmanager with value such as => rate(flask_http_request_total{status="500"}[1m]) > 60
