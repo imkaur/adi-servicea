@@ -30,7 +30,7 @@ This microservice service A is written in a python based program which randomly 
 ## Monitoring
 * Service is monitored from kuberenets perspective by setting monitoring probes such as - startupProbe, livenessProbe and readinessProbe.
 * Out of the many ways, one of the standard way of monitoring applications is by using a combination of prometheus, grafana and alert-manager. While prometheus scrapes the target by pulling the metrics, grafana displays dashboards and alertmanager is being used to generate alerts to send to email, on-call notification systems, and chat platforms.
-* Here, to get insights about the applictaion, it can be monitored by exposing the metrics to prometheus and alert can be set when error ratio is greater than threshold limit. 
+* Here, to get insights about the application, it can be monitored by exposing the metrics to prometheus and alert can be set when error ratio is greater than threshold limit. 
 * The application error percentage is the number of requests that result in an error compared to the total number of requests.
 * Initialize prometheus metrics by prometheus client library. It is possible to import prometheus metrics from prometheus_flask_exporter and get request counters exposed to /metrics endpoint.
 * flask_http_request_total - gives Total number of HTTP requests by method and status
