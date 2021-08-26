@@ -19,15 +19,14 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 8081
-#UnComment if you are on version 1.21 
-#        startupProbe:
-#          httpGet:
-#            path: /health
-#            port: 8081
-#          failureThreshold: 6
-#          periodSeconds: 10
-        livenessProbe:
+        startupProbe:
           httpGet:
+            path: /health
+            port: 8081
+          failureThreshold: 6
+          periodSeconds: 10
+       livenessProbe:
+         httpGet:
             path: /health
             port: 8081
           initialDelaySeconds: 3
