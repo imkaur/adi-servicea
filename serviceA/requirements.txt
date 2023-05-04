@@ -1,4 +1,4 @@
-Flask==2.0.1
+Flask==2.2.5
 random2==1.0.1
 flask-restplus>=0.13,<0.14
 Flask-SSLify>=0.1.5,<0.2
